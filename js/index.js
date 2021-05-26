@@ -14,4 +14,27 @@
 
   // DOM manipulation (insert)
   footer.appendChild(paragraph)
+
+
+  // CHALLENGE 2. Create List of Skills
+  // --------------------------------------------------------------
+
+  const skills = [
+    'HTML',
+    'JavaScript',
+    'CSS',
+  ]
+
+  // DOM selection
+  const skillsSection = document.querySelector('#skills')
+  const skillsList = skillsSection.querySelector('ul')
+
+  for (let i = 0; i < skills.length; i++) {
+    // DOM manipulation (create)
+    const skill = document.createElement('li')
+    skill.innerText = skills[i]
+
+    // DOM manipulation (modify)
+    skillsList.appendChild(skill)
+  }
 })()
