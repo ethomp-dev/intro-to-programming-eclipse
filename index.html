@@ -40,7 +40,9 @@
       <section id="skills">
         <h2>Skills</h2>
 
-        <ul></ul>
+        <ul>
+          <!-- HTML will be inserted here via JS -->
+        </ul>
       </section>
 
       <section>
@@ -58,7 +60,34 @@
           </li>
         </ul>
       </section>
+
+      <section>
+        <h2>Leave a Message</h2>
+
+        <form name="leave_message">
+          <label for="lm_name">Name</label><br>
+          <input id="lm_name" type="text" name="name" required /><br>
+
+          <label for="lm_email">Email Address</label><br>
+          <input id="lm_email" type="email" name="email" required /><br>
+
+          <label for="lm_message">Message</label><br>
+          <textarea id="lm_message" name="message" required></textarea><br>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+
+      <section id="messages" style="display: none;">
+        <h2>Messages</h2>
+
+        <ul>
+          <!-- HTML will be inserted here via JS -->
+        </ul>
+      </section>
     </main>
+
+    <hr />
 
     <footer>
       <!-- HTML will be inserted here via JS -->
