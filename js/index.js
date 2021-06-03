@@ -72,6 +72,40 @@
       const newMessage = document.createElement('li')
       newMessage.innerHTML = `<a href="mailto:${email.value}">${name.value}</a> wrote: <span>${message.value}</span> &nbsp;`
 
+      // create edit button
+      const editButton = document.createElement('button')
+      editButton.innerText = BUTTON.edit
+      editButton.type = 'button'
+      editButton.style.marginRight = '5px'
+
+      editButton.addEventListener('click', (event) => {
+        const button = event.target
+        const entry = button.parentNode
+
+        if (button.innerText === BUTTON.edit) {
+          const message = entry.querySelector('span')
+          const input = document.createElement('input')
+          input.type = 'text'
+          input.value = message.innerText
+
+          entry.insertBefore(input, message)
+          entry.removeChild(message)
+
+          button.innerText = BUTTON.save
+        } else {
+          const input = entry.querySelector('input')
+          const message = document.createElement('span')
+          message.innerText = input.value
+
+          entry.insertBefore(message, input)
+          entry.removeChild(input)
+
+          button.innerText = BUTTON.edit
+        }
+      })
+
+      newMessage.appendChild(editButton)
+
       // create remove button
       const removeButton = document.createElement('button')
       removeButton.innerText = BUTTON.remove
