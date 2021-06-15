@@ -7,91 +7,219 @@
     <title>Elliot Thompson</title>
     <meta name="author" content="Elliot Thompson" />
     <meta name="description" content="Portfolio website for Elliot Thompson" />
-    <meta name="keywords" content="Elliot Thompson, Portfolio, Personal Website, Software Engineer" />
+    <meta
+      name="keywords"
+      content="Elliot Thompson, Portfolio, Personal Website, Software Engineer"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
 
   <body>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <ul class="menu" role="list">
+            <li class="menu__item">
+              <img
+                class="image image--small image--rounded"
+                src="img/ethompson.png"
+                role="presentation"
+              />
+            </li>
+            <li class="menu__item menu__item--large">
+              <a class="link link--no-color strong" href="/">Elliot Thompson</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <main>
-      <h1>Elliot Thompson</h1>
+      <div class="container">
+        <h1 class="sr-only">Personal Portfolio</h1>
 
-      <img src="img/ethompson.png" alt="Profile photo of Elliot Thompson" width="100" />
+        <section id="about">
+          <h2>About</h2>
 
-      <section>
-        <h2>About</h2>
+          <p>
+            Multi-disciplined software engineer with experience in UI, UX, and
+            full-stack development. Continuous process improver. Passionate
+            teacher and mentor. Empathetic leader. Focused on crafting a web for
+            everyone.
+          </p>
 
-        <p>I'm a developer and designer</p>
-        <p>Focused on creating beautifully crafted web applications with enhanced user experiences</p>
-      </section>
+          <p>
+            Pronouns: <strong>they/them</strong> and <strong>he/him</strong>
+          </p>
+        </section>
 
-      <section>
-        <h2>Experience</h2>
+        <section id="experience">
+          <h2>Experience</h2>
 
-        <ul>
-          <li>Senior Software Engineer at Carewell</li>
-          <li>Software Engineer III at Skookum</li>
-          <li>Web Developer at FROG</li>
-          <li>Fullstack Developer at Atypic</li>
-          <li>Developer at WordPress VIP (Automattic)</li>
-          <li>Developer at Bank of America</li>
-          <li>Java Developer at Old Dominion Freight Line</li>
-        </ul>
-      </section>
+          <ul role="list">
+            <li class="card">
+              <span
+                ><strong>Senior Software Engineer</strong> &mdash;
+                Carewell</span
+              >
+              <span class="emphasis">Nov 2020 - Present</span>
+            </li>
+            <li class="card">
+              <span
+                ><strong>Lead Software Engineer</strong> &mdash; Skookum,
+                Inc.</span
+              >
+              <span class="emphasis">Aug 2020 - Oct 2020</span>
+            </li>
+            <li class="card">
+              <span
+                ><strong>Web Developer</strong> &mdash; Furniture Retail
+                Operations Group</span
+              >
+              <span class="emphasis">Aug 2018 - Feb 2019</span>
+            </li>
+            <li class="card">
+              <span
+                ><strong>Developer Intern</strong> &mdash; Atypic Craft</span
+              >
+              <span class="emphasis">May 2018 - Aug 2018</span>
+            </li>
+            <li class="card">
+              <span
+                ><strong>Global Technology Developer Intern</strong> &mdash;
+                Bank of America</span
+              >
+              <span class="emphasis">Jun 2017 - Aug 2017</span>
+            </li>
+            <li class="card">
+              <span
+                ><strong>Developer Intern</strong> &mdash; Automattic, WordPress
+                VIP</span
+              >
+              <span class="emphasis">Jan 2017 - May 2017</span>
+            </li>
+            <li class="card">
+              <span
+                ><strong>Fullstack Developer</strong> &mdash; Old Dominion
+                Freight Line</span
+              >
+              <span class="emphasis">Jun 2015 - Nov 2016</span>
+            </li>
+          </ul>
+        </section>
 
-      <section id="skills">
-        <h2>Skills</h2>
+        <section id="skills">
+          <h2>Skills</h2>
 
-        <ul>
-          <!-- HTML will be inserted here via JS -->
-        </ul>
-      </section>
+          <ul role="list">
+            <!-- HTML will be inserted here via JS -->
+          </ul>
+        </section>
 
-      <section>
-        <h2>Connect</h2>
+        <section id="contact">
+          <h2>Leave a Message</h2>
 
-        <ul>
-          <li>
-            <a href="https://linkedin.com/in/ethomp-dev" target="_blank">LinkedIn</a>
-          </li>
-          <li>
-            <a href="https://github.com/ethomp-dev" target="_blank">GitHub</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/e4efficiency" target="_blank">Twitter</a>
-          </li>
-        </ul>
-      </section>
+          <form name="leave_message">
+            <div class="field field--inline">
+              <label class="field__label" for="lm_name">Name</label>
+              <input
+                class="field__input"
+                id="lm_name"
+                type="text"
+                name="name"
+                required
+              />
+            </div>
 
-      <section>
-        <h2>Leave a Message</h2>
+            <div class="field field--inline">
+              <label class="field__label" for="lm_email">Email Address</label>
+              <input
+                class="field__input"
+                id="lm_email"
+                type="email"
+                name="email"
+                required
+              />
+            </div>
 
-        <form name="leave_message">
-          <label for="lm_name">Name</label><br>
-          <input id="lm_name" type="text" name="name" required /><br>
+            <div class="field">
+              <label class="field__label" for="lm_message">Message</label>
+              <textarea
+                class="field__input"
+                id="lm_message"
+                name="message"
+                required
+              ></textarea>
+            </div>
 
-          <label for="lm_email">Email Address</label><br>
-          <input id="lm_email" type="email" name="email" required /><br>
+            <button class="button" type="submit">Submit</button>
+          </form>
+        </section>
 
-          <label for="lm_message">Message</label><br>
-          <textarea id="lm_message" name="message" required></textarea><br>
+        <section id="messages" style="display: none">
+          <h2>Messages</h2>
 
-          <button type="submit">Submit</button>
-        </form>
-      </section>
-
-      <section id="messages" style="display: none;">
-        <h2>Messages</h2>
-
-        <ul>
-          <!-- HTML will be inserted here via JS -->
-        </ul>
-      </section>
+          <ul class="list" role="list">
+            <!-- HTML will be inserted here via JS -->
+          </ul>
+        </section>
+      </div>
     </main>
 
-    <hr />
-
     <footer>
-      <!-- HTML will be inserted here via JS -->
+      <div class="container">
+        <nav class="nav">
+          <p id="copyright">
+            <!-- HTML will be inserted here via JS -->
+          </p>
+
+          <ul class="menu" role="list">
+            <li class="menu__item">
+              <a
+                class="link link--no-color"
+                href="https://linkedin.com/in/ethomp-dev"
+                target="_blank"
+                title="LinkedIn"
+              >
+                <i data-feather="linkedin"></i>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a
+                class="link link--no-color"
+                href="https://github.com/ethomp-dev"
+                target="_blank"
+                title="GitHub"
+              >
+                <i data-feather="github"></i>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a
+                class="link link--no-color"
+                href="https://twitter.com/e4efficiency"
+                target="_blank"
+                title="Twitter"
+              >
+                <i data-feather="twitter"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </footer>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+      feather.replace()
+    </script>
 
     <script type="text/javascript" src="js/index.js"></script>
   </body>
