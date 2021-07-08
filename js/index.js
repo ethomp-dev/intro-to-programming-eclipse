@@ -1,15 +1,15 @@
-(() => {
+;(() => {
   // CHALLENGE 1. Insert Copyright Text in Footer
   // --------------------------------------------------------------
   const renderCopyright = () => {
     const today = new Date()
     const thisYear = today.getFullYear()
 
-      // DOM selection
-      const copyright = document.querySelector('#copyright')
+    // DOM selection
+    const copyright = document.querySelector('#copyright')
 
-      // DOM manipulation (modify)
-      copyright.innerHTML = `&copy; Elliot Thompson ${thisYear}`
+    // DOM manipulation (modify)
+    copyright.innerHTML = `&copy; Elliot Thompson ${thisYear}`
   }
 
   // CHALLENGE 2. Create List of Skills
@@ -24,7 +24,7 @@
       'PHP',
       'Java',
       'MySQL',
-      'etc.'
+      'etc.',
     ]
 
     // DOM selection
@@ -79,7 +79,9 @@
       newMessage.classList.add('list__item')
       newMessage.innerHTML = `<div>
         <span class="strong">${message.value}</span>
-        <p>${now.toLocaleString()} from <a class="link" href="mailto:${email.value}">${name.value}</a> &nbsp;</p>
+        <p>${now.toLocaleString()} from <a class="link" href="mailto:${
+        email.value
+      }">${name.value}</a> &nbsp;</p>
       </div>`
 
       // create edit button
@@ -147,9 +149,36 @@
     })
   }
 
+  function renderProjectsWithXHR() {
+    const githubRequest = new XMLHttpRequest()
+
+    githubRequest.open('GET', 'https://api.github.com/users/ethomp-dev/repos')
+
+    githubRequest.addEventListener('load', function () {
+      const data = JSON.parse(this.response)
+
+      // filter out irrelevant repositories
+      const filteredData = data.filter((repo) =>
+        repo.name.includes('intro-to-programming')
+      )
+
+      const projectSection = document.querySelector('#projects')
+      const projectList = projectSection.querySelector('ul')
+
+      for (let repository of filteredData) {
+        const project = document.createElement('li')
+        project.innerHTML = `<a class="link link--no-decor" href="${repository.html_url}">${repository.name}</a>`
+        projectList.appendChild(project)
+      }
+    })
+
+    githubRequest.send()
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     renderCopyright()
     renderSkillsList()
     renderMessageForm()
+    renderProjectsWithXHR()
   })
 })()

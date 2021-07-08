@@ -109,8 +109,8 @@ section {
   color: inherit;
 }
 
-.link:hover::after,
-.link:focus::after {
+.link:not(.link--no-decor):hover::after,
+.link:not(.link--no-decor):focus::after {
   border-bottom: 2px solid var(--color-primary);
   content: '';
   display: block;
