@@ -175,10 +175,31 @@
     githubRequest.send()
   }
 
+  function renderProjectsWithFetch() {
+    fetch('https://api.github.com/users/ethomp-dev/repos')
+      .then((res) => res.json())
+      .then((data) => {
+        // filter out irrelevant repositories
+        const filteredData = data.filter((repo) =>
+          repo.name.includes('intro-to-programming')
+        )
+
+        const projectSection = document.querySelector('#projects')
+        const projectList = projectSection.querySelector('ul')
+
+        for (let repository of filteredData) {
+          const project = document.createElement('li')
+          project.innerHTML = `<a class="link link--no-decor" href="${repository.html_url}">${repository.name}</a>`
+          projectList.appendChild(project)
+        }
+      })
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     renderCopyright()
     renderSkillsList()
     renderMessageForm()
-    renderProjectsWithXHR()
+    // renderProjectsWithXHR()
+    renderProjectsWithFetch()
   })
 })()
